@@ -9,11 +9,12 @@ class MainTest {
     void compare(List<Item> First, List<Item> Second){
         assertEquals(First.size(),Second.size(),"No of items added are different");
         for(int i=0;i<First.size();i++){
-            assertEquals(First.get(i).getName(),Second.get(i).getName(),"Name is different");
-            assertEquals(First.get(i).getQuantity(),Second.get(i).getQuantity(),"Quantity is different");
-            assertEquals(First.get(i).getPrice(),Second.get(i).getPrice(),"Price is different");
-            assertEquals(First.get(i).getTaxedCost(),Second.get(i).getTaxedCost(),"Taxed Cost is different");
-            assertEquals(First.get(i).getType(),Second.get(i).getType(),"Type is different");
+            Item FirstCurr = First.get(i),SecondCurr=Second.get(i);
+            assertEquals(FirstCurr.getName(),SecondCurr.getName(),"Name is different");
+            assertEquals(FirstCurr.getQuantity(),SecondCurr.getQuantity(),"Quantity is different");
+            assertEquals(FirstCurr.getPrice(),SecondCurr.getPrice(),"Price is different");
+            assertEquals(FirstCurr.getTaxedCost(),SecondCurr.getTaxedCost(),"Taxed Cost is different");
+            assertEquals(FirstCurr.getType(),SecondCurr.getType(),"Type is different");
         }
     }
 

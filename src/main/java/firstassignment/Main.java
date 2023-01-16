@@ -27,7 +27,7 @@ public class Main {
     static void addPrice(String value) {
         try {
             double intValue = Double.parseDouble(value);
-            if(intValue<0){
+            if(intValue<=0){
                 System.out.println("Enter Positive Value of price only");
             }else{
                 item.setPrice(Integer.parseInt(value));
@@ -40,7 +40,7 @@ public class Main {
     static void addQuantity(String value) {
         try {
             int intValue = Integer.parseInt(value);
-            if(intValue<0){
+            if(intValue<=0){
                 System.out.println("Enter Positive Value of quantity only");
             }else{
                 item.setQuantity(Integer.parseInt(value));
@@ -53,7 +53,7 @@ public class Main {
     static void processNewItem() {
         item = new Item();
         while (true) {
-            String line = sc.nextLine();
+            String line = sc.nextLine().trim();
             if (line.equals("")) {
                 if (Objects.nonNull(item.getType())) break;
                 System.out.println("Mandatory field type has not been set yet");
@@ -95,7 +95,7 @@ public class Main {
     static boolean addAdditionalItem() {
         System.out.println("Do you wish to enter more items? Press y/n");
         while (true) {
-            String option = sc.nextLine();
+            String option = sc.nextLine().trim();
             if (option.equals("y")) {
                 return true;
             } else if (option.equals(("n"))) {
