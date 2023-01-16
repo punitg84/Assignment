@@ -26,7 +26,7 @@ public class Main {
 
     static void addPrice(String value) {
         try {
-            int intValue = Integer.parseInt(value);
+            double intValue = Double.parseDouble(value);
             if(intValue<0){
                 System.out.println("Enter Positive Value of price only");
             }else{
