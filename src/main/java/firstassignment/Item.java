@@ -20,22 +20,24 @@ public class Item {
     private int quantity;
     private Type type;
     private double taxedCost;
-    Item(){
+
+    Item() {
         //Default Constructor
     }
 
-    Item(String name,String type,int price,int quantity,double taxedCost){
-        this.name=name;
-        this.type=Type.valueOf(type.toUpperCase());
-        this.price=price;
-        this.quantity=quantity;
+    Item(String name, String type, int price, int quantity, double taxedCost) {
+        this.name = name;
+        this.type = Type.valueOf(type.toUpperCase());
+        this.price = price;
+        this.quantity = quantity;
         this.taxedCost = taxedCost;
     }
 
     public double getTaxedCost() {
         return taxedCost;
     }
-    public double calcTaxedCost(){
+
+    public double calcTaxedCost() {
         double taxedCost = 0;
         switch (type) {
             case RAW:
@@ -43,8 +45,9 @@ public class Item {
                 break;
             case IMPORTED:
                 taxedCost = (price * PERCENTAGE_TAX_ON_IMPORTED_ITEM_ON_COST) / 100.0;
-                if (price+taxedCost <= 100) taxedCost += SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_100;
-                else if (price+taxedCost <= 200) taxedCost += SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_200_AND_ABOVE_100;
+                if (price + taxedCost <= 100) taxedCost += SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_100;
+                else if (price + taxedCost <= 200)
+                    taxedCost += SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_200_AND_ABOVE_100;
                 else taxedCost += ((taxedCost + price) * SURCHARGE_TAX_PERCENTAGE_ON_TAXED_COST_ABOVE_200) / 100.0;
                 break;
             case MANUFACTURED:
@@ -54,6 +57,7 @@ public class Item {
         }
         return taxedCost;
     }
+
     public void setTaxedCost(double taxedCost) {
         this.taxedCost = taxedCost;
     }
@@ -87,7 +91,7 @@ public class Item {
     }
 
     public void setType(String type) {
-        type=type.toUpperCase();
+        type = type.toUpperCase();
         this.type = Type.valueOf(type);
     }
 
