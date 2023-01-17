@@ -2,102 +2,70 @@ package itemTaxCalculator.models;
 
 import static itemTaxCalculator.Constants.*;
 
-public class Item {
-    private static final double PERCENTAGE_TAX_ON_RAW_ITEM_ON_COST = 12.5;
-    private static final double PERCENTAGE_TAX_ON_MANUFACTURED_ITEM_ON_COST = 12.5;
-    private static final double PERCENTAGE_TAX_ON_MANUFACTURED_ITEM_ON_TAXED_COST = 2;
-    private static final int PERCENTAGE_TAX_ON_IMPORTED_ITEM_ON_COST = 10;
-    private static final int SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_100 = 5;
-    private static final int SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_200_AND_ABOVE_100 = 10;
-    private static final int SURCHARGE_TAX_PERCENTAGE_ON_TAXED_COST_ABOVE_200 = 5;
+public abstract class Item {
 
-    private String name;
-    private double price;
-    private int quantity;
-    private Type type;
-    private double taxedCost;
+  protected String name;
+  protected double price;
+  protected int quantity;
+  protected Type type;
+  protected double taxedCost;
 
-    public Item() {
-        //Default Constructor
+  public Item() {
+    //Default Constructor
+  }
+
+  public Item(String name, Type type, double price, int quantity) {
+    this.name = name;
+    this.type = type;
+    this.price = price;
+    this.quantity = quantity;
+    if (price != 0) {
+      this.taxedCost = calcTaxedCost();
     }
+  }
 
-    public Item(String name, Type type, double price, int quantity, double taxedCost) {
-        this.name = name;
-        this.type = type;
-        this.price = price;
-        this.quantity = quantity;
-        this.taxedCost = taxedCost;
+  public static Item createItem(String name, Type type, double price, int quantity) {
+    switch (type) {
+      case MANUFACTURED:
+        return new ManufacturedItem(name, type, price, quantity);
+      case IMPORTED:
+        return new ImportedItem(name, type, price, quantity);
+      case RAW:
+        return new RawItem(name, type, price, quantity);
     }
+    return null;
+  }
 
-    public double getTaxedCost() {
-        return taxedCost;
-    }
+  public double getTaxedCost() {
+    return taxedCost;
+  }
 
-    public double calcTaxedCost() {
-        double taxedCost = 0;
-        switch (type) {
-            case RAW:
-                taxedCost = (price * PERCENTAGE_TAX_ON_RAW_ITEM_ON_COST) / 100.0;
-                break;
-            case IMPORTED:
-                taxedCost = (price * PERCENTAGE_TAX_ON_IMPORTED_ITEM_ON_COST) / 100.0;
-                if (price + taxedCost <= 100) taxedCost += SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_100;
-                else if (price + taxedCost <= 200)
-                    taxedCost += SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_200_AND_ABOVE_100;
-                else taxedCost += ((taxedCost + price) * SURCHARGE_TAX_PERCENTAGE_ON_TAXED_COST_ABOVE_200) / 100.0;
-                break;
-            case MANUFACTURED:
-                taxedCost = (price * PERCENTAGE_TAX_ON_MANUFACTURED_ITEM_ON_COST) / 100.0;
-                taxedCost += ((price + taxedCost) * PERCENTAGE_TAX_ON_MANUFACTURED_ITEM_ON_TAXED_COST) / 100.0;
-                break;
-        }
-        return taxedCost;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setTaxedCost(double taxedCost) {
-        this.taxedCost = taxedCost;
-    }
+  public double getPrice() {
+    return price;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public int getQuantity() {
+    return quantity;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public Type getType() {
+    return type;
+  }
 
-    public double getPrice() {
-        return price;
-    }
+  public abstract double calcTaxedCost();
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = Type.valueOf(type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder item = new StringBuilder();
-        item.append("Name : " + name + "\n");
-        item.append("Quantity : " + quantity + "\n");
-        item.append("Type : " + type + "\n");
-        item.append("Tax : " + taxedCost + "\n");
-        item.append("Final Price including tax : " + (price + taxedCost) + "\n");
-        return item.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder item = new StringBuilder();
+    item.append("Name : " + name + "\n");
+    item.append("Quantity : " + quantity + "\n");
+    item.append("Type : " + type + "\n");
+    item.append("Tax : " + taxedCost + "\n");
+    item.append("Final Price including tax : " + (price + taxedCost) + "\n");
+    return item.toString();
+  }
 }

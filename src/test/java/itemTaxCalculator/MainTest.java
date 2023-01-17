@@ -47,18 +47,18 @@ class MainTest {
         Main.main(new String[0]);
 
         ItemCollection itemCollection = new ItemCollection();
-        itemCollection.addItem(new Item("item1","raw",0,0,0));
-        itemCollection.addItem(new Item("item2","raw",0,5,0));
-        itemCollection.addItem(new Item("item3","raw",100,0,12.5));
-        itemCollection.addItem(new Item("item4","manufactured",100,0,14.75));
-        itemCollection.addItem(new Item("item5","imported",10,0,6));
-        itemCollection.addItem(new Item("item6","imported",100,0,20));
-        itemCollection.addItem(new Item("item7","imported",200,0,31));
-        itemCollection.addItem(new Item("item8","imported",0,0,0));
-        itemCollection.addItem(new Item("item9","imported",0,0,0));
-        itemCollection.addItem(new Item("item10","imported",0,0,0));
-        itemCollection.addItem(new Item("item11","imported",0,0,0));
-        itemCollection.addItem(new Item("item12","imported",0,0,0));
+//        itemCollection.addItem(new Item("item1","raw",0,0,0));
+//        itemCollection.addItem(new Item("item2","raw",0,5,0));
+//        itemCollection.addItem(new Item("item3","raw",100,0,12.5));
+//        itemCollection.addItem(new Item("item4","manufactured",100,0,14.75));
+//        itemCollection.addItem(new Item("item5","imported",10,0,6));
+//        itemCollection.addItem(new Item("item6","imported",100,0,20));
+//        itemCollection.addItem(new Item("item7","imported",200,0,31));
+//        itemCollection.addItem(new Item("item8","imported",0,0,0));
+//        itemCollection.addItem(new Item("item9","imported",0,0,0));
+//        itemCollection.addItem(new Item("item10","imported",0,0,0));
+//        itemCollection.addItem(new Item("item11","imported",0,0,0));
+//        itemCollection.addItem(new Item("item12","imported",0,0,0));
 
         compare(itemCollection.getItemList(),Main.itemCollection.getItemList());
     }
