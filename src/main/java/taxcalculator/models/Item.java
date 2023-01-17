@@ -1,6 +1,6 @@
-package itemTaxCalculator.models;
+package taxcalculator.models;
 
-import static itemTaxCalculator.Constants.*;
+import taxcalculator.enums.Type;
 
 public abstract class Item {
 

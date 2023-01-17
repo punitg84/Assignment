@@ -1,6 +1,13 @@
-package itemTaxCalculator.models;
+package taxcalculator.models;
 
-import static itemTaxCalculator.Constants.*;
+import static taxcalculator.constants.Tax.IMPORTED_ITEM_FIRST_LIMIT;
+import static taxcalculator.constants.Tax.IMPORTED_ITEM_FIXED_SURCHARGE_ABOVE_FIRST_LIMIT_BELOW_SECOND_LIMIT;
+import static taxcalculator.constants.Tax.IMPORTED_ITEM_FIXED_SURCHARGE_BELOW_FIRST_LIMIT;
+import static taxcalculator.constants.Tax.IMPORTED_ITEM_SECOND_LIMIT;
+import static taxcalculator.constants.Tax.IMPORTED_ITEM_SURCHARGE_RATE_ABOVE_SECOND_LIMIT;
+import static taxcalculator.constants.Tax.IMPORTED_ITEM_TAX_RATE;
+
+import taxcalculator.enums.Type;
 
 public class ImportedItem extends Item {
 

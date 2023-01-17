@@ -1,8 +1,7 @@
-package itemTaxCalculator;
+package taxcalculator;
 
-import itemTaxCalculator.models.Item;
-import itemTaxCalculator.ItemCollection;
-import itemTaxCalculator.Main;
+import taxcalculator.models.Item;
+import taxcalculator.collection.ItemCollection;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -60,6 +59,6 @@ class MainTest {
 //        itemCollection.addItem(new Item("item11","imported",0,0,0));
 //        itemCollection.addItem(new Item("item12","imported",0,0,0));
 
-        compare(itemCollection.getItemList(),Main.itemCollection.getItemList());
+        compare(itemCollection.getItems(),Main.itemCollection.getItems());
     }
 }

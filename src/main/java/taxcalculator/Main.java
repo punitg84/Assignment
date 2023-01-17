@@ -1,10 +1,25 @@
-package itemTaxCalculator;
+package taxcalculator;
 
-import static itemTaxCalculator.Constants.*;
-import static itemTaxCalculator.ValidateInput.*;
+import static taxcalculator.constants.Commands.NAME_CMD;
+import static taxcalculator.constants.Commands.NO;
+import static taxcalculator.constants.Commands.PRICE_CMD;
+import static taxcalculator.constants.Commands.QUANTITY_CMD;
+import static taxcalculator.constants.Commands.TYPE_CMD;
+import static taxcalculator.constants.Commands.YES;
+import static taxcalculator.validation.ValidateInput.checkEmptyInput;
+import static taxcalculator.validation.ValidateInput.checkFirstName;
+import static taxcalculator.validation.ValidateInput.checkProperInput;
+import static taxcalculator.validation.ValidateInput.extractValidName;
+import static taxcalculator.validation.ValidateInput.extractValidPrice;
+import static taxcalculator.validation.ValidateInput.extractValidQuantity;
+import static taxcalculator.validation.ValidateInput.extractValidType;
+import static taxcalculator.validation.ValidateInput.isEndInput;
 
-import itemTaxCalculator.models.Item;
+import java.util.List;
 import java.util.Scanner;
+import taxcalculator.collection.ItemCollection;
+import taxcalculator.enums.Type;
+import taxcalculator.models.Item;
 
 public class Main {
   private static Scanner sc = new Scanner(System.in);
@@ -45,8 +60,7 @@ public class Main {
             price = extractValidPrice(value);
             break;
           default:
-            System.out.println("Use the following commands -type, -quantity, -price");
-            break;
+            throw new Exception("Use the following commands -type, -quantity, -price");
         }
       } catch (Exception e) {
         System.out.println(e.getMessage());
@@ -71,13 +85,17 @@ public class Main {
     }
   }
 
+  static void displayItems() {
+    List<Item> itemList = itemCollection.getItems();
+    System.out.println("In total no of items added were : " + itemList.size());
+    System.out.println("There Item Info is as follows");
+    System.out.println(itemList);
+  }
+
   public static void main(String[] args) {
-    while (true) {
+    do {
       processNewItem();
-      if (!addAdditionalItem()) {
-        break;
-      }
-    }
-    itemCollection.printItems();
+    } while (addAdditionalItem());
+    displayItems();
   }
 }
