@@ -1,4 +1,6 @@
-package firstassignment;
+package itemTaxCalculator.models;
+
+import static itemTaxCalculator.Constants.*;
 
 public class Item {
     private static final double PERCENTAGE_TAX_ON_RAW_ITEM_ON_COST = 12.5;
@@ -9,25 +11,19 @@ public class Item {
     private static final int SURCHARGE_TAX_AMOUNT_ON_TAXED_COST_BELOW_200_AND_ABOVE_100 = 10;
     private static final int SURCHARGE_TAX_PERCENTAGE_ON_TAXED_COST_ABOVE_200 = 5;
 
-    private enum Type {
-        RAW,
-        MANUFACTURED,
-        IMPORTED
-    }
-
     private String name;
     private double price;
     private int quantity;
     private Type type;
     private double taxedCost;
 
-    Item() {
+    public Item() {
         //Default Constructor
     }
 
-    Item(String name, String type, int price, int quantity, double taxedCost) {
+    public Item(String name, Type type, double price, int quantity, double taxedCost) {
         this.name = name;
-        this.type = Type.valueOf(type.toUpperCase());
+        this.type = type;
         this.price = price;
         this.quantity = quantity;
         this.taxedCost = taxedCost;
@@ -91,8 +87,17 @@ public class Item {
     }
 
     public void setType(String type) {
-        type = type.toUpperCase();
         this.type = Type.valueOf(type);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder item = new StringBuilder();
+        item.append("Name : " + name + "\n");
+        item.append("Quantity : " + quantity + "\n");
+        item.append("Type : " + type + "\n");
+        item.append("Tax : " + taxedCost + "\n");
+        item.append("Final Price including tax : " + (price + taxedCost) + "\n");
+        return item.toString();
+    }
 }

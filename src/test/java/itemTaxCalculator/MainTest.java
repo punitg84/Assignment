@@ -1,4 +1,8 @@
-package firstassignment;
+package itemTaxCalculator;
+
+import itemTaxCalculator.models.Item;
+import itemTaxCalculator.ItemCollection;
+import itemTaxCalculator.Main;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
