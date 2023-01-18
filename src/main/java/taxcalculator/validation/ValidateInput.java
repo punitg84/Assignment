@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import taxcalculator.enums.Type;
 
 public class ValidateInput {
-  static void checkNumeric(String str) throws Exception {
+  public static void checkNumeric(String str) throws Exception {
     if (!str.matches(IS_NUMERIC_REGEX)) {
       throw new Exception("Enter integral value only");
     }

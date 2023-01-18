@@ -13,7 +13,7 @@ class RawItemTest {
   @ParameterizedTest
   @JsonFileSource(resources = "/taxcalculator/models/rawitemtest/testCalcTaxedCostWithDifferentPriceTestCases.json")
   void testCalcTaxedCostWithDifferentPriceGroups(JsonObject json) {
-    String testcaseName = json.get("name").toString();
+    String testcaseName = json.getString("name");
     double inputPrice = Double.parseDouble(json.get("inputPrice").toString());
     double expectedOutputPrice = Double.parseDouble(json.get("outputPrice").toString());
 

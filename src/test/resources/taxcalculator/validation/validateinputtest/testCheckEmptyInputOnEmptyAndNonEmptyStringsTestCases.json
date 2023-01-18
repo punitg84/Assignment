@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Empty String",
+    "inputString": "",
+    "errMessage": "Mandatory field type has not been set yet"
+  },
+  {
+    "name": "Non empty String",
+    "inputString": "Random text",
+    "errMessage": ""
+  }
+]
