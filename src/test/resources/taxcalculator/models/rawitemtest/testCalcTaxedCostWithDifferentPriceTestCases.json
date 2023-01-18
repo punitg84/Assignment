@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Test Case 1",
+    "inputPrice": 100,
+    "outputPrice": 112.5
+  },
+  {
+    "name": "Test Case 2",
+    "inputPrice": 200,
+    "outputPrice": 225
+  }
+]

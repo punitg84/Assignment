@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Price Below First Limit",
+    "inputPrice": 10,
+    "outputPrice": 16
+  },
+  {
+    "name": "Price above first limit and below second limit",
+    "inputPrice": 100,
+    "outputPrice": 120
+  },
+  {
+    "name": "Price above second limit",
+    "inputPrice": 200,
+    "outputPrice": 231
+  }
+]
