@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Proper quantity",
+    "inputString": "100",
+    "output": "100",
+    "errMessage": ""
+  },
+  {
+    "name": "negative quantity",
+    "inputString": "-100",
+    "output": "0",
+    "errMessage": "Enter Positive Value of quantity only"
+  }
+]

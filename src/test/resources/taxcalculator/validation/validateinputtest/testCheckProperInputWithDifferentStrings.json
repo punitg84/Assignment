@@ -1,0 +1,12 @@
+[
+  {
+    "name": "name command",
+    "inputString": "-name punit",
+    "errMessage": ""
+  },
+  {
+    "name": "No value only command",
+    "inputString": "-type",
+    "errMessage": "Input does not follow the order -option <value>"
+  }
+]

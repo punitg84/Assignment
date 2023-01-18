@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Proper name",
+    "inputString": "abc",
+    "output": "abc",
+    "errMessage": ""
+  },
+  {
+    "name": "Empty String",
+    "inputString": "",
+    "output": "",
+    "errMessage": "Name is not supposed to be empty string"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Proper type - RAW",
+    "inputString": "RAW",
+    "output": "RAW",
+    "errMessage": ""
+  },
+  {
+    "name": "random type",
+    "inputString": "random",
+    "output": "",
+    "errMessage": "Enter one of the following type raw,imported or manufactured"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Proper price",
+    "inputString": "100",
+    "output": "100",
+    "errMessage": ""
+  },
+  {
+    "name": "negative price",
+    "inputString": "-100",
+    "output": "0",
+    "errMessage": "Enter Positive Value of price only"
+  }
+]
