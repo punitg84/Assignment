@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Null type, non empty string",
+    "inputString": "abc",
+    "inputType": "",
+    "output": "false"
+  },
+  {
+    "name": "not null type, non empty string",
+    "inputString": "abc",
+    "inputType": "raw",
+    "output": "false"
+  },
+  {
+    "name": "not null type, empty string",
+    "inputString": "",
+    "inputType": "raw",
+    "output": "true"
+  },
+  {
+    "name": "Null type, empty string",
+    "inputString": "",
+    "inputType": "",
+    "output": "false"
+  }
+]

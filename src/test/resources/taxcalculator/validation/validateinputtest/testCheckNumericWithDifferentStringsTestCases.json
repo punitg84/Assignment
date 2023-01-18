@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Non Integral Value",
+    "inputString": "abc",
+    "errMessage": "Enter integral value only"
+  },
+  {
+    "name": "Integer Value",
+    "inputString": "200",
+    "errMessage": ""
+  },
+  {
+    "name": "Double Value",
+    "inputString": "200.0",
+    "errMessage": ""
+  }
+]

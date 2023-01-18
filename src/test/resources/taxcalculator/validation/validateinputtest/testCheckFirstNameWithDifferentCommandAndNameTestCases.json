@@ -1,0 +1,20 @@
+[
+  {
+    "name": "No name set, different command",
+    "inputCommand": "-type",
+    "currentName": "",
+    "errMessage": "Please start by entering the name using the cmd -name <your item name>"
+  },
+  {
+    "name": "name set, different command",
+    "inputCommand": "-type",
+    "currentName": "random name",
+    "errMessage": ""
+  },
+  {
+    "name": "No name set, name command",
+    "inputCommand": "-name",
+    "currentName": "",
+    "errMessage": ""
+  }
+]
